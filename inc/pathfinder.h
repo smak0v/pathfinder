@@ -43,19 +43,20 @@ typedef struct s_bfs {
 
 // Functions
 void mx_error_handler(t_error error, char *filename, char *text);
-void mx_generate_error(char *first_part, char *text, char *second_part);
+void mx_generr(char *first_part, char *text, char *second_part);
 void mx_check_all_lines(char **file_lines, char *file_str);
 bool mx_check_first_line(char *file_str);
 bool mx_is_line_correct(char *line);
 void mx_parse_line(char *line, char **i_1, char **i_2, int *bridge);
 bool mx_check_str_set(char **set, char *element, int set_size);
-int mx_get_set_element_index(char **set, const char *element);
-char ***mx_get_islands(int edges_count, char **file_lines, char **islands_set);
+int mx_get_i(char **set, const char *element);
+char ***mx_get_islands(int edges_count, char **file_lines, char **set);
 int **mx_get_islands_matrix(char **lines, char **islands_set, int edges);
 t_graph *mx_create_graph(int vertices_count);
 void mx_del_graph(t_graph *graph);
 t_node *mx_create_adjacency_node(int vertex);
 void mx_add_edge(t_graph *graph, int src, int dst, t_list **nodes);
+t_list *mx_add_edges(t_graph *graph, char **lines, char **set, char ***i);
 void mx_get_all_paths(int islands_c, t_graph *graph, t_list **all_paths);
 t_list *mx_get_all_paths_util(t_graph *graph, int src, int dst);
 int mx_get_path_weight(t_list *path, int **matrix);

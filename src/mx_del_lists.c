@@ -3,7 +3,7 @@
 static void del_list(t_list *list);
 static void del_2d_list(t_list *list);
 static void del_all_paths_list(t_list *list);
-static void del_nodes_list(t_list *list);
+static void del_nodes_list(t_list *nodes);
 
 void mx_del_lists(t_list *all_paths, t_list *min_paths, t_list *nodes) {
     del_all_paths_list(all_paths);
@@ -49,9 +49,9 @@ static void del_list(t_list *list) {
         mx_pop_back(&list);
 }
 
-static void del_nodes_list(t_list *list) {
+static void del_nodes_list(t_list *nodes) {
     t_node *node = NULL;
-    t_list *first = list;
+    t_list *first = nodes;
 
     while (first) {
         node = (t_node *)first->data;

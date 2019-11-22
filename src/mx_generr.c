@@ -1,6 +1,6 @@
 #include "pathfinder.h"
 
-void mx_generate_error(char *first_part, char *text, char *second_part) {
+void mx_generr(char *first_part, char *text, char *second_part) {
     int len1 = mx_strlen(first_part);
     int len2 = mx_strlen(text);
     int len3 = mx_strlen(second_part);

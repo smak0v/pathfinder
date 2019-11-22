@@ -46,25 +46,20 @@ static void check_file_str(char *file_str, char *filename) {
 }
 
 static void pathfinding(char **lines, char **set, char ***i, char *str) {
-    int **i_arr = mx_get_islands_matrix(lines, set, mx_get_arr_length(lines) - 1);
+    int **ar = mx_get_islands_matrix(lines, set, mx_get_arr_length(lines) - 1);
     t_graph *graph = mx_create_graph(mx_atoi(lines[0]));
     t_list *all_paths = NULL;
     t_list *min_paths = NULL;
-    t_list *tmp = NULL;
-    t_list *nodes = NULL;
+    t_list *n = mx_add_edges(graph, lines, set, i);
 
-    for (int j = 0; j < mx_get_arr_length(lines) - 1; j++)
-        mx_add_edge(graph, mx_get_set_element_index(set, i[j][0]), mx_get_set_element_index(set, i[j][1]), &nodes);
     mx_get_all_paths(mx_atoi(lines[0]), graph, &all_paths);
-    tmp = all_paths;
-    min_paths = mx_get_min_paths(tmp, i_arr);
-    tmp = min_paths;
-    mx_print_all_paths(tmp, set, i_arr);
+    min_paths = mx_get_min_paths(all_paths, ar);
+    mx_print_all_paths(min_paths, set, ar);
     mx_del_islands(i, mx_get_arr_length(lines) - 1);
     mx_del_strarr(&lines);
-    mx_del_intarr(&i_arr, mx_get_arr_length(set));
+    mx_del_intarr(&ar, mx_get_arr_length(set));
     mx_del_strarr(&set);
-    mx_del_lists(all_paths, min_paths, nodes);
+    mx_del_lists(all_paths, min_paths, n);
     mx_del_graph(graph);
     mx_strdel(&str);
 }
