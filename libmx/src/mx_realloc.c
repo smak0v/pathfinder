@@ -1,7 +1,7 @@
 #include "libmx.h"
 
 void *mx_realloc(void *ptr, size_t size) {
-    void *result;
+    void *result = NULL;
     size_t length = 0;
 
     if (size == 0 && ptr) {

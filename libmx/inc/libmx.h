@@ -38,6 +38,7 @@ int mx_quicksort(char **arr, int left, int right);
 int mx_get_arr_length(char **arr);
 void mx_del_intarr(int ***array, int length);
 void mx_intdel(int **arr);
+int mx_get_file_length(const char *file);
 
 // String pack
 int mx_strlen(const char *s);

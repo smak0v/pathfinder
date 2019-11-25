@@ -54,6 +54,7 @@ mx_swap_char.c \
 mx_del_extra_spaces.c \
 mx_strsplit.c \
 mx_strjoin.c \
+mx_get_file_length.c \
 mx_file_to_str.c \
 mx_read_line.c \
 mx_replace_substr.c \
@@ -127,6 +128,7 @@ src/mx_swap_char.c \
 src/mx_del_extra_spaces.c \
 src/mx_strsplit.c \
 src/mx_strjoin.c \
+src/mx_get_file_length.c \
 src/mx_file_to_str.c \
 src/mx_read_line.c \
 src/mx_replace_substr.c \
@@ -200,6 +202,7 @@ mx_swap_char.o \
 mx_del_extra_spaces.o \
 mx_strsplit.o \
 mx_strjoin.o \
+mx_get_file_length.o \
 mx_file_to_str.o \
 mx_read_line.o \
 mx_replace_substr.o \

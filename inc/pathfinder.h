@@ -43,7 +43,7 @@ typedef struct s_bfs {
 
 // Functions
 void mx_error_handler(t_error error, char *filename, char *text);
-void mx_generr(char *first_part, char *text, char *second_part);
+void mx_gener(char *first_part, char *text, char *second_part);
 void mx_check_all_lines(char **file_lines, char *file_str);
 bool mx_check_first_line(char *file_str);
 bool mx_is_line_correct(char *line);

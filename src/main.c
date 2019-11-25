@@ -35,12 +35,12 @@ static void check_argc(int argc) {
 }
 
 static void check_file_str(char *file_str, char *filename) {
-    if (file_str == NULL) {
-        mx_error_handler(FILE_DOES_NOT_EXISTS, filename, NULL);
+    if (mx_get_file_length(filename) == 0) {
+        mx_error_handler(FILE_IS_EMPTY, filename, NULL);
         exit(-1);
     }
-    if (mx_strlen(file_str) == 0) {
-        mx_error_handler(FILE_IS_EMPTY, filename, NULL);
+    if (file_str == NULL) {
+        mx_error_handler(FILE_DOES_NOT_EXISTS, filename, NULL);
         exit(-1);
     }
 }

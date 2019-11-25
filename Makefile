@@ -34,7 +34,7 @@ mx_get_path_weight.c \
 mx_print_path.c \
 mx_print_all_paths.c \
 mx_get_min_paths.c \
-mx_generr.c \
+mx_gener.c \
 mx_del_lists.c \
 mx_del_graph.c \
 mx_del_islands.c
@@ -61,7 +61,7 @@ src/mx_get_path_weight.c \
 src/mx_print_path.c \
 src/mx_print_all_paths.c \
 src/mx_get_min_paths.c \
-src/mx_generr.c \
+src/mx_gener.c \
 src/mx_del_lists.c \
 src/mx_del_graph.c \
 src/mx_del_islands.c
@@ -88,7 +88,7 @@ mx_get_path_weight.o \
 mx_print_path.o \
 mx_print_all_paths.o \
 mx_get_min_paths.o \
-mx_generr.o \
+mx_gener.o \
 mx_del_lists.o \
 mx_del_graph.o \
 mx_del_islands.o
