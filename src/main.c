@@ -35,7 +35,7 @@ static void check_argc(int argc) {
 }
 
 static void check_file_str(char *file_str, char *filename) {
-    if (mx_get_file_length(filename) == 0) {
+    if (mx_get_file_length(filename) < 1) {
         mx_error_handler(FILE_IS_EMPTY, filename, NULL);
         exit(-1);
     }
