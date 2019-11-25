@@ -5,7 +5,7 @@ int mx_atoi(const char *str) {
     int n = 0;
     int s = 1;
 
-    while (!mx_isdigit(str[i])){
+    while (!mx_isdigit(str[i])) {
         if (!mx_isspace(str[i]) && str[i] != '-' && str[i] != '+')
             return 0;
         i++;

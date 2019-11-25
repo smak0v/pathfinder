@@ -1,10 +1,10 @@
 #include "libmx.h"
 
 void mx_print_unicode(wchar_t c) {
-	char result[5];
+    char result[5];
 
-	if (c < 0x080) {
-		result[0] = (c >> 0 & 0x7F) | 0x00;
+    if (c < 0x080) {
+        result[0] = (c >> 0 & 0x7F) | 0x00;
 		result[1] = '\0';
 		result[2] = '\0';
 		result[3] = '\0';

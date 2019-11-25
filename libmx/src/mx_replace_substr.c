@@ -14,7 +14,7 @@ char *mx_replace_substr(const char *str, const char *sub, const char *replace) {
  	new_str = mx_strnew(mx_strlen(str) - all_sub_str_length + (mx_strlen(replace) * sub_str_count));
  	new_str_copy = new_str;
  	while (*str && *str != '\0') {
- 		if (mx_strstr(str, sub) == NULL)
+ 		if (!mx_strstr(str, sub))
  			return mx_strdup(str);
  		if (str != mx_strstr(str, sub)) {
  			mx_strncpy(new_str, str, 1);

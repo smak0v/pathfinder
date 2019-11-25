@@ -9,12 +9,12 @@ char *mx_strtrim(const char *str) {
 
 	if (str == NULL)
 		return NULL;
-	while(mx_isspace(str[i++]))
+	while (mx_isspace(str[i++]))
 		start_spaces_count++;
 	if (start_spaces_count == mx_strlen(str))
 		return mx_strnew(0);
 	i = mx_strlen(str) - 1;
-	while(mx_isspace(str[i--]))
+	while (mx_isspace(str[i--]))
 		end_spaces_count++;
 	size = mx_strlen(str) - (start_spaces_count + end_spaces_count);
 	str += start_spaces_count;

@@ -3,13 +3,10 @@
 unsigned long mx_hex_to_nbr(const char *hex) {
 	unsigned long base = 1;
 	unsigned long result = 0;
-	unsigned long hex_len = 0;
-	const char *hex_copy = hex;
+	unsigned long hex_len = mx_strlen(hex);
 
-	if (hex == NULL)
+	if (!hex)
 		return 0;
-	while (*hex_copy++)
-		hex_len++;
 	for (int i = hex_len - 1; i >= 0; i--) {
 		if (hex[i] >= '0' && hex[i] <= '9') {
 			result += (hex[i] - 48) * base;
