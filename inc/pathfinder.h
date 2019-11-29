@@ -66,5 +66,6 @@ void mx_print_path(char **islands_set, t_list *path, int w, int **matrix);
 void mx_print_all_paths(t_list *paths, char **set, int **islands_arr);
 void mx_del_lists(t_list *all_paths, t_list *min_paths, t_list *nodes);
 void mx_del_islands(char ***islands, int edges_count);
+void mx_validate_file_str(char *file_str);
 
 #endif

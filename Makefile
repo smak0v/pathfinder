@@ -37,7 +37,8 @@ mx_get_min_paths.c \
 mx_gener.c \
 mx_del_lists.c \
 mx_del_graph.c \
-mx_del_islands.c
+mx_del_islands.c \
+mx_validate_file_str.c
 
 SRCF = \
 src/main.c \
@@ -64,7 +65,8 @@ src/mx_get_min_paths.c \
 src/mx_gener.c \
 src/mx_del_lists.c \
 src/mx_del_graph.c \
-src/mx_del_islands.c
+src/mx_del_islands.c \
+src/mx_validate_file_str.c
 
 OBJ = \
 main.o \
@@ -91,7 +93,8 @@ mx_get_min_paths.o \
 mx_gener.o \
 mx_del_lists.o \
 mx_del_graph.o \
-mx_del_islands.o
+mx_del_islands.o \
+mx_validate_file_str.o
 
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 

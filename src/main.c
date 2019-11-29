@@ -1,7 +1,7 @@
 #include "pathfinder.h"
 
 static void check_argc(int argc);
-static void check_file_str(char *file_str, char *filename);
+static void check_file(char *filename);
 static void pathfinding(char **lines, char **set, char ***i, char *str);
 
 int main(int argc, char *argv[]) {
@@ -11,10 +11,10 @@ int main(int argc, char *argv[]) {
     char ***islands = NULL;
 
     check_argc(argc);
+    check_file(argv[1]);
     file_str = mx_file_to_str(argv[1]);
-    check_file_str(file_str, argv[1]);
+    mx_validate_file_str(file_str);
     lines = mx_strsplit(file_str, '\n');
-    mx_check_all_lines(lines, file_str);
     islands_set = malloc(sizeof(char *) * (mx_atoi(lines[0]) + 1));
     for (int i = 0; i < mx_atoi(lines[0]) + 1; i++)
         islands_set[i] = NULL;
@@ -34,13 +34,15 @@ static void check_argc(int argc) {
     }
 }
 
-static void check_file_str(char *file_str, char *filename) {
-    if (mx_get_file_length(filename) < 1) {
-        mx_error_handler(FILE_IS_EMPTY, filename, NULL);
+static void check_file(char *filename) {
+    int file_descriptor = open(filename, O_RDONLY);
+
+    if (file_descriptor < 0) {
+        mx_error_handler(FILE_DOES_NOT_EXISTS, filename, NULL);
         exit(-1);
     }
-    if (file_str == NULL) {
-        mx_error_handler(FILE_DOES_NOT_EXISTS, filename, NULL);
+    if (mx_get_file_length(filename) == 0) {
+        mx_error_handler(FILE_IS_EMPTY, filename, NULL);
         exit(-1);
     }
 }

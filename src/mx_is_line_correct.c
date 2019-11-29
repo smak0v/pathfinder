@@ -25,7 +25,7 @@ bool mx_is_line_correct(char *line) {
 static bool check_bridge_length(int i, char *line) {
     int j = 0;
 
-    while (line[i] != '\0') {
+    while (line[i] != '\n') {
         if (!mx_isdigit(line[i]))
             return false;
         i++;
