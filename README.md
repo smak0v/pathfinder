@@ -1,4 +1,4 @@
-# Pathfinder Project
+# Pathfinder
 
 ## Description
 
@@ -87,3 +87,7 @@ Distance: 5
 4. The first line contains something other than digits.
 5. One of the remaining lines doesn't match the pattern ```str1-str2,n```.
 6. The number received on the first line does not coincide with the number of islands.
+
+## License
+
+Collision is an open-sourced software licensed under the [MIT license](LICENSE.md).
