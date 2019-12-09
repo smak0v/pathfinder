@@ -23,7 +23,9 @@ static int get_word_length(const char *str, char c) {
     int word_length = 0;
     char *copy_str = (char *)str;
 
-    while ((*copy_str++ != c) && (*copy_str != '\0'))
+    while ((*copy_str != c) && (*copy_str != '\0')) {
         word_length++;
+        copy_str++;
+    }
     return word_length;
 }

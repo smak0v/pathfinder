@@ -1,33 +1,41 @@
 #include "libmx.h"
 
-char *mx_replace_substr(const char *str, const char *sub, const char *replace) {
- 	char *new_str = NULL;
- 	char *new_str_copy = NULL;
- 	char *tmp = NULL;
- 	int sub_str_count = 0;
- 	int all_sub_str_length = 0;
+static void not_sub_case(const char **s, const char **sub, char **buf);
+static void get_all_lengths(int *len_s, int *len_r, char *sub, char *replace);
 
- 	if (!str || !sub || !replace)
- 		return NULL;
- 	sub_str_count = mx_count_substr(str, sub);
- 	all_sub_str_length = sub_str_count * mx_strlen(sub);
- 	new_str = mx_strnew(mx_strlen(str) - all_sub_str_length + (mx_strlen(replace) * sub_str_count));
- 	new_str_copy = new_str;
- 	while (*str && *str != '\0') {
- 		if (!mx_strstr(str, sub))
- 			return mx_strdup(str);
- 		if (str != mx_strstr(str, sub)) {
- 			mx_strncpy(new_str, str, 1);
- 			new_str++;
- 			str++;
- 		}
- 		if (str == mx_strstr(str, sub)) {
- 			tmp = mx_strdup(replace);
- 			mx_strcat(new_str, tmp);
- 			mx_strdel(&tmp);
- 			str += mx_strlen(sub);
- 			new_str += mx_strlen(replace);
- 		}
- 	}
- 	return new_str_copy;
- }
+char *mx_replace_substr(const char *str, const char *sub, const char *replace)
+{
+    char *buf1 = NULL;
+    char *buf2 = NULL;
+    const char *s = str;
+    int len_s = 0;
+    int len_r = 0;
+
+    if ((!str) || (!sub) || (!replace))
+        return NULL;
+    get_all_lengths(&len_s, &len_r, (char *)sub, (char *)replace);
+    buf1 = mx_strnew(mx_strlen(s) + (len_r - len_s) * mx_count_substr(s, sub));
+    buf2 = buf1;
+    while (*s) {
+        not_sub_case(&s, &sub, &buf2);
+        if (s == mx_strstr(s, sub)) {
+            buf2 = mx_strcat(buf2, replace);
+            buf2 += len_r;
+            s += len_s;
+        }
+    }
+    return buf1;
+}
+
+static void get_all_lengths(int *len_s, int *len_r, char *sub, char *replace) {
+    *len_s = mx_strlen(sub);
+    *len_r = mx_strlen(replace);
+}
+
+static void not_sub_case(const char **s, const char **sub, char **buf) {
+    if (*s != mx_strstr(*s, *sub)) {
+        **buf = **s;
+        (*buf)++;
+        (*s)++;
+    }
+}

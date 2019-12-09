@@ -9,12 +9,12 @@ t_list *mx_sort_list(t_list *list, bool (*cmp)(void *a, void *b)) {
     while (list) {
         help = store;
         while (help) {
-            if (help->next && cmp(help->data, help->next->data)) {
+            if ((help->next) && (cmp(help->data, help->next->data))) {
                 swap_data = help->data;
                 help->data = help->next->data;
                 help->next->data = swap_data;
             }
-            help=help->next;
+            help = help->next;
         }
         list = list->next;
     }

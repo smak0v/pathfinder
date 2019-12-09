@@ -10,7 +10,7 @@ char *mx_del_extra_spaces(const char *str) {
     if (str) {
         trimmed_str = mx_strtrim(str);
         new_str = mx_strnew(get_str_length_without_extra_spaces(trimmed_str));
-        for (int i = 0, j = 0; i < mx_strlen(trimmed_str); ) {
+        for (int i = 0, j = 0; i < mx_strlen(trimmed_str);) {
             if (!mx_isspace(trimmed_str[i])) {
                 new_str[j] = trimmed_str[i];
                 i++;

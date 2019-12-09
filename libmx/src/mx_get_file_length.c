@@ -10,7 +10,7 @@ int mx_get_file_length(const char *file) {
     file_descriptor = open(file, O_RDONLY);
     if (file_descriptor < 0)
         return -1;
-    while(read(file_descriptor, buffer, 1))
+    while (read(file_descriptor, buffer, 1))
         length++;
     if (close(file_descriptor) < 0)
         return -1;

@@ -1,7 +1,7 @@
 #include "libmx.h"
 
 int mx_bubble_sort(char **arr, int size) {
-    char *tmp;
+    char *tmp = NULL;
     int swap_count = 0;
 
     for (int i = 0; i < size - 1; i++)
@@ -12,5 +12,5 @@ int mx_bubble_sort(char **arr, int size) {
                 arr[j + 1] = tmp;
                 swap_count++;
             }
-        return swap_count;
+    return swap_count;
 }

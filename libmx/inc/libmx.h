@@ -1,17 +1,17 @@
 #ifndef LIBMX_H
 #define LIBMX_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <wchar.h>
 #include <fcntl.h>
 #include <malloc/malloc.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <wchar.h>
 
 // Structures
-typedef struct  s_list {
-	void  *data;
-	struct s_list *next;
+typedef struct s_list {
+    void *data;
+    struct s_list *next;
 } t_list;
 
 // Utils pack
@@ -21,6 +21,7 @@ void mx_print_unicode(wchar_t c);
 void mx_printstr(const char *s);
 void mx_printstr_endl(const char *s);
 void mx_print_error(const char *error);
+void mx_print_error_endl(const char *error);
 void mx_print_strarr(char **arr, const char *delim);
 void mx_printint(int n);
 void mx_printint_endl(int n);
@@ -64,27 +65,31 @@ char *mx_del_extra_spaces(const char *str);
 char **mx_strsplit(const char *s, char c);
 char *mx_strjoin(const char *s1, const char *s2);
 char *mx_file_to_str(const char *file);
-int mx_read_line(char **lineptr, int buf_size, char delim, const int fd);
+int mx_read_line(char **lineptr, size_t buf_size, char delim, const int fd);
 char *mx_replace_substr(const char *str, const char *sub, const char *replace);
 bool mx_isspace(char c);
 bool mx_isalpha(char c);
 bool mx_isdigit(char c);
 bool mx_islower(char c);
 bool mx_isupper(char c);
+int mx_toupper(int c);
+int mx_tolower(int c);
 
 // Memory pack
 void *mx_memset(void *b, int c, size_t len);
 void *mx_memcpy(void *restrict dst, const void *restrict src, size_t n);
-void *mx_memccpy(void *restrict dst, const void *restrict src, int c, size_t n);
+void *mx_memccpy(void *restrict dst, const void *restrict src, int c,
+                 size_t n);
 int mx_memcmp(const void *s1, const void *s2, size_t n);
 void *mx_memchr(const void *s, int c, size_t n);
 void *mx_memrchr(const void *s, int c, size_t n);
-void *mx_memmem(const void *big, size_t big_len, const void *little, size_t little_len);
+void *mx_memmem(const void *big, size_t big_len, const void *little,
+                size_t little_len);
 void *mx_memmove(void *dst, const void *src, size_t len);
 void *mx_realloc(void *ptr, size_t size);
 
 // List pack
-t_list  *mx_create_node(void *data);
+t_list *mx_create_node(void *data);
 void mx_push_front(t_list **list, void *data);
 void mx_push_back(t_list **list, void *data);
 void mx_pop_front(t_list **head);

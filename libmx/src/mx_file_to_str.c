@@ -1,4 +1,4 @@
-#include "libmx.h" 
+#include "libmx.h"
 
 char *mx_file_to_str(const char *file) {
     int file_descriptor = -1;
@@ -15,7 +15,7 @@ char *mx_file_to_str(const char *file) {
         file_descriptor = open(file, O_RDONLY);
         if (file_descriptor < 0)
             return NULL;
-        while(read(file_descriptor, buffer, 1))
+        while (read(file_descriptor, buffer, 1))
             target_str[i++] = buffer[0];
         if (close(file_descriptor) < 0)
             return NULL;

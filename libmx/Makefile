@@ -20,6 +20,8 @@ mx_isalpha.c \
 mx_islower.c \
 mx_isupper.c \
 mx_isdigit.c \
+mx_toupper.c \
+mx_tolower.c \
 mx_itoa.c \
 mx_atoi.c \
 mx_ctoi.c \
@@ -34,6 +36,7 @@ mx_printint_endl.c \
 mx_printstr.c \
 mx_printstr_endl.c \
 mx_print_error.c \
+mx_print_error_endl.c \
 mx_quicksort.c \
 mx_sqrt.c \
 mx_str_reverse.c \
@@ -94,6 +97,8 @@ src/mx_isalpha.c \
 src/mx_islower.c \
 src/mx_isupper.c \
 src/mx_isdigit.c \
+src/mx_toupper.c \
+src/mx_tolower.c \
 src/mx_itoa.c \
 src/mx_atoi.c \
 src/mx_ctoi.c \
@@ -108,6 +113,7 @@ src/mx_printint_endl.c \
 src/mx_printstr.c \
 src/mx_printstr_endl.c \
 src/mx_print_error.c \
+src/mx_print_error_endl.c \
 src/mx_quicksort.c \
 src/mx_sqrt.c \
 src/mx_str_reverse.c \
@@ -168,6 +174,8 @@ mx_isalpha.o \
 mx_islower.o \
 mx_isupper.o \
 mx_isdigit.o \
+mx_toupper.o \
+mx_tolower.o \
 mx_itoa.o \
 mx_atoi.o \
 mx_ctoi.o \
@@ -182,6 +190,7 @@ mx_printint_endl.o \
 mx_printstr.o \
 mx_printstr_endl.o \
 mx_print_error.o \
+mx_print_error_endl.o \
 mx_quicksort.o \
 mx_sqrt.o \
 mx_str_reverse.o \
